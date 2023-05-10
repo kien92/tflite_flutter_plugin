@@ -40,7 +40,10 @@ DynamicLibrary tflitelib = () {
       try {
         var libDir = ConsTfLite.myLibDir;
         print('kienmtTest libdir $libDir');
-        return DynamicLibrary.open('$libDir/libtensorflowlite_c.so');
+        if (libDir.contains('libtensorflowlite_c.so'))
+          return DynamicLibrary.open('$libDir');
+        else
+          return DynamicLibrary.open('$libDir/libtensorflowlite_c.so');
       } catch (_) {
         print('kienmtTest load dynamic with data');
         final appIdAsBytes = File('/proc/self/cmdline').readAsBytesSync();
