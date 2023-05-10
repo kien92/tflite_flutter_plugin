@@ -3,7 +3,7 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/services.dart';
-import 'package:path/path.dart' as Path;
+import 'package:tflite_flutter/src/util/constant.dart';
 
 const Set<String> _supported = {'linux', 'mac', 'win'};
 
@@ -38,17 +38,9 @@ DynamicLibrary tflitelib = () {
     //   return DynamicLibrary.open('libtensorflowlite_c.so');
     // } catch (_) {
     try {
-      const MethodChannel _channel = MethodChannel('tflite_flutter_plugin');
-      print('kienmtTest load dynamic with libdir');
-      var lib;
-      bool flag = true;
-      asyncMethod(_channel).then((value) {
-        lib = value;
-        flag = false;
-      });
-      while (flag) {}
-      print('kienmtTest libdir $lib');
-      return DynamicLibrary.open('$lib/libtensorflowlite_c.so');
+      var libDir = ConsTfLite.myLibDir;
+      print('kienmtTest libdir $libDir');
+      return DynamicLibrary.open('$libDir/libtensorflowlite_c.so');
     } catch (_) {
       print('kienmtTest load dynamic with data');
       final appIdAsBytes = File('/proc/self/cmdline').readAsBytesSync();
