@@ -32,6 +32,11 @@ String get binaryName {
 /// TensorFlowLite C library.
 // ignore: missing_return
 DynamicLibrary tflitelib = () {
+  const MethodChannel _channel = MethodChannel('tflite_flutter_plugin');
+  String libDir = asyncMethod(_channel);
+  print('kienmtTest load dynamic with libdir');
+  var lib = libDir;
+  print('kienmtTest libdir $lib');
   if (Platform.isAndroid) {
     try {
       print('kienmtTest load dynamic');
