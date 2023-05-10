@@ -33,25 +33,25 @@ String get binaryName {
 // ignore: missing_return
 DynamicLibrary tflitelib = () {
   if (Platform.isAndroid) {
-    // try {
-    //   print('kienmtTest load dynamic');
-    //   return DynamicLibrary.open('libtensorflowlite_c.so');
-    // } catch (_) {
     try {
-      var libDir = ConsTfLite.myLibDir;
-      print('kienmtTest libdir $libDir');
-      return DynamicLibrary.open('$libDir/libtensorflowlite_c.so');
+      print('kienmtTest load dynamic');
+      return DynamicLibrary.open('libtensorflowlite_c.so');
     } catch (_) {
-      print('kienmtTest load dynamic with data');
-      final appIdAsBytes = File('/proc/self/cmdline').readAsBytesSync();
-      // app id ends with the first \0 character in here.
-      final endOfAppId = max(appIdAsBytes.indexOf(0), 0);
-      final appId = String.fromCharCodes(appIdAsBytes.sublist(0, endOfAppId));
-      print('kienmtTest appId $appId');
-      return DynamicLibrary.open(
-          '/data/data/$appId/lib/libtensorflowlite_c.so');
+      try {
+        var libDir = ConsTfLite.myLibDir;
+        print('kienmtTest libdir $libDir');
+        return DynamicLibrary.open('$libDir/libtensorflowlite_c.so');
+      } catch (_) {
+        print('kienmtTest load dynamic with data');
+        final appIdAsBytes = File('/proc/self/cmdline').readAsBytesSync();
+        // app id ends with the first \0 character in here.
+        final endOfAppId = max(appIdAsBytes.indexOf(0), 0);
+        final appId = String.fromCharCodes(appIdAsBytes.sublist(0, endOfAppId));
+        print('kienmtTest appId $appId');
+        return DynamicLibrary.open(
+            '/data/data/$appId/lib/libtensorflowlite_c.so');
+      }
     }
-    // }
   } else if (Platform.isIOS) {
     return DynamicLibrary.process();
   } else {
