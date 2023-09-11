@@ -95,6 +95,7 @@ class Interpreter {
     final model = Model.fromBuffer(buffer);
     final interpreter = Interpreter._create(model, options: options);
     model.delete();
+    print("kienmtTest from Buffer 2" + ConsTfLite.myLibDir);
     return interpreter;
   }
 

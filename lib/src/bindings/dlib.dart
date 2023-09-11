@@ -1,7 +1,6 @@
 import 'dart:ffi';
 import 'dart:io';
 import 'dart:math';
-
 import 'package:flutter/services.dart';
 import 'package:tflite_flutter/src/util/constant.dart';
 
