@@ -3,7 +3,7 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/services.dart';
-import '../util/constant.dart';
+import 'package:tflite_flutter/tflite_flutter.dart';
 
 const Set<String> _supported = {'linux', 'mac', 'win'};
 
@@ -39,7 +39,7 @@ DynamicLibrary tflitelib = () {
     } catch (_) {
       try {
         var libDir = ConsTfLite.myLibDir;
-        print(ConsTfLite.getMyLibDir + 'kienmtTest aaa');
+        print(ConsTfLite.myLibDir + 'kienmtTest aaa');
         print('kienmtTest libdir $libDir');
         if (libDir.contains('libtensorflowlite_c.so'))
           return DynamicLibrary.open('$libDir');

@@ -5,6 +5,7 @@ import 'dart:typed_data';
 import 'package:ffi/ffi.dart';
 import 'package:flutter/services.dart';
 import 'package:quiver/check.dart';
+import 'package:tflite_flutter/src/util/constant.dart';
 
 import 'bindings/interpreter.dart';
 import 'bindings/types.dart';
@@ -90,6 +91,7 @@ class Interpreter {
   /// ```
   factory Interpreter.fromBuffer(Uint8List buffer,
       {InterpreterOptions? options}) {
+    print("kienmtTest from Buffer" + ConsTfLite.myLibDir);
     final model = Model.fromBuffer(buffer);
     final interpreter = Interpreter._create(model, options: options);
     model.delete();
