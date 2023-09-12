@@ -41,6 +41,7 @@ class Interpreter {
   factory Interpreter._create(Model model, {InterpreterOptions? options}) {
     final interpreter = tfLiteInterpreterCreate(
         model.base, options?.base ?? cast<TfLiteInterpreterOptions>(nullptr));
+    print("kienmtTest from create 2" + ConsTfLite.myLibDir);
     checkArgument(isNotNull(interpreter),
         message: 'Unable to create interpreter.');
     return Interpreter._(interpreter);

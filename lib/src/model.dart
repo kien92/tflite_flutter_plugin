@@ -3,6 +3,7 @@ import 'dart:typed_data';
 
 import 'package:ffi/ffi.dart';
 import 'package:quiver/check.dart';
+import 'package:tflite_flutter/src/util/constant.dart';
 
 import 'bindings/model.dart';
 import 'bindings/types.dart';
@@ -36,6 +37,7 @@ class Model {
     final model = tfLiteModelCreateFromBuffer(ptr.cast(), buffer.length);
     checkArgument(isNotNull(model),
         message: 'Unable to create model from buffer');
+    print("kienmtTest from Buffer 2" + ConsTfLite.myLibDir);
     return Model._(model);
   }
 
