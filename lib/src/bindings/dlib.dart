@@ -33,7 +33,7 @@ String get binaryName {
 DynamicLibrary tflitelib = () {
   if (Platform.isAndroid) {
     try {
-      print('kienmtTest load dynamic');
+      print(ConsTfLite.myLibDir + 'kienmtTest load dynamic');
       return DynamicLibrary.open('libtensorflowlite_c.so');
     } catch (_) {
       try {
