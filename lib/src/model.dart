@@ -34,10 +34,11 @@ class Model {
     final ptr = calloc<Uint8>(size);
     final externalTypedData = ptr.asTypedList(size);
     externalTypedData.setRange(0, buffer.length, buffer);
+    print("kienmtTest from model Buffer 2" + ConsTfLite.myLibDir);
     final model = tfLiteModelCreateFromBuffer(ptr.cast(), buffer.length);
+    print("kienmtTest from model Buffer 3" + ConsTfLite.myLibDir);
     checkArgument(isNotNull(model),
         message: 'Unable to create model from buffer');
-    print("kienmtTest from Buffer 2" + ConsTfLite.myLibDir);
     return Model._(model);
   }
 

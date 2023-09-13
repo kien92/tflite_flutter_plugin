@@ -39,6 +39,7 @@ class Interpreter {
   ///
   /// Throws [ArgumentError] is unsuccessful.
   factory Interpreter._create(Model model, {InterpreterOptions? options}) {
+    print("kienmtTest from create 1" + ConsTfLite.myLibDir);
     final interpreter = tfLiteInterpreterCreate(
         model.base, options?.base ?? cast<TfLiteInterpreterOptions>(nullptr));
     print("kienmtTest from create 2" + ConsTfLite.myLibDir);
