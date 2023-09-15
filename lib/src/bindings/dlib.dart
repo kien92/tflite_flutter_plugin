@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:tflite_flutter/src/util/constant.dart';
 
 const Set<String> _supported = {'linux', 'mac', 'win'};
-late int _id;
+int _id = 0;
 int get id => _id;
 set id(int value) {
   _id = value;
