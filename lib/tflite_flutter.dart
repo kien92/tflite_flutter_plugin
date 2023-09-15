@@ -20,7 +20,7 @@ export 'src/quanitzation_params.dart';
 export 'src/tensor.dart';
 export 'src/util/list_shape_extension.dart';
 export 'src/util/byte_conversion_utils.dart';
-export 'src/util/constant.dart';
+export 'package:tflite_flutter/src/util/constant.dart';
 
 /// tflite version information.
 String get version => tfLiteVersion().toDartString();
