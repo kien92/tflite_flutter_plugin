@@ -5,6 +5,11 @@ import 'package:flutter/services.dart';
 import 'package:tflite_flutter/src/util/constant.dart';
 
 const Set<String> _supported = {'linux', 'mac', 'win'};
+late int _id;
+int get id => _id;
+set id(int value) {
+  _id = value;
+}
 
 String get binaryName {
   String os, ext;
@@ -32,7 +37,9 @@ String get binaryName {
 // ignore: missing_return
 DynamicLibrary tflitelib = () {
   if (Platform.isAndroid) {
+    print('kienmtTest id' + id.toString());
     try {
+      id = 10;
       print(ConsTfLite.myLibDir + 'kienmtTest load dynamic');
       return DynamicLibrary.open('libtensorflowlite_c.so');
     } catch (_) {
